@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ta" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -133,9 +133,10 @@
             background: var(--primary);
             color: white;
             border: 2px solid var(--secondary);
-            padding: 8px 15px;
+            padding: 32px 35px;
             border-radius: 30px;
             cursor: pointer;
+            font-size: medium;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -152,9 +153,13 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(30, 27, 75, 0.85), rgba(30, 27, 75, 0.85)), 
-                        url('https://images.unsplash.com/photo-1601758174810-8e7a7f60c7d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-            display: flex;
+            background: url("./land.jpg");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -168,6 +173,8 @@
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            color: #6b21a8;
+            
         }
         
         .hero p {
@@ -175,6 +182,8 @@
             max-width: 700px;
             margin-bottom: 2.5rem;
             opacity: 0.9;
+            color: #4c1d95;
+            font-weight: 800;
         }
         
         .cta-buttons {
@@ -207,8 +216,9 @@
         
         .btn-secondary {
             background: transparent;
-            color: white;
-            border: 2px solid white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+
         }
         
         .btn-secondary:hover {
@@ -308,7 +318,7 @@
         /* Services Section */
         .services {
             padding: 100px 20px;
-            background: white;
+            background:var(--secondary);
             text-align: center;
         }
         
@@ -629,6 +639,10 @@
                 display: block;
             }
             
+            .hero{
+                height:60vh;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -666,7 +680,7 @@
             <a href="#home" class="nav-link" data-en="Home" data-ta="முகப்பு">Home</a>
             <a href="#about" class="nav-link" data-en="About" data-ta="பற்றி">About</a>
             <a href="#services" class="nav-link" data-en="Services" data-ta="சேவைகள்">Services</a>
-            <a href="#gallery" class="nav-link" data-en="Gallery" data-ta="பட தொகுப்பு">Gallery</a>
+      
             <a href="#contact" class="nav-link" data-en="Contact" data-ta="தொடர்பு">Contact</a>
             <a href="#tribute" class="nav-link" data-en="Our Story" data-ta="எங்கள் கதை">Our Story</a>
             <a href="tel:9382523912" class="nav-cta" data-en="Book Now" data-ta="பதிவு செய்க">Book Now</a>
@@ -683,11 +697,11 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <h1 class="hero-title" data-en="Reliable Auto Service by K. Muthu" data-ta="கே. முத்துவின் நம்பகமான ஆட்டோ சேவை">
+        <h1 class="hero-title" data-en="Reliable Auto Service by K. Muthu" data-ta="க. முத்துவின் நம்பகமான ஆட்டோ சேவை">
             Reliable Auto Service by K. Muthu
         </h1>
-        <p class="hero-subtitle" data-en="Serving You with a Smile Since 2005!" data-ta="2005 முதல் புன்னகையுடன் உங்களுக்கு சேவை!">
-            Serving You with a Smile Since 2005!
+        <p class="hero-subtitle" data-en="Serving You with a Smile Since 2014!" data-ta="2014 முதல் புன்னகையுடன் உங்களுக்கு சேவை!">
+            Serving You with a Smile Since 2014!
         </p>
         <div class="cta-buttons">
             <a href="tel:9382523912" class="btn btn-primary" data-en="Book a Ride" data-ta="பயணத்தை பதிவு செய்க">
@@ -713,7 +727,7 @@
                 <i class="fas fa-shield-alt"></i>
             </div>
             <h3 data-en="Safe" data-ta="பாதுகாப்பான">Safe</h3>
-            <p data-en="20+ years of accident-free driving experience" data-ta="20+ வருடங்கள் விபத்து இல்லாத ஓட்டுநர் அனுபவம்">20+ years of accident-free driving experience</p>
+            <p data-en="10+ years of accident-free driving experience" data-ta="10+ வருடங்கள் விபத்து இல்லாத ஓட்டுநர் அனுபவம்">10+ years of accident-free driving experience</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">
@@ -740,7 +754,7 @@
                    data-ta="முத்து நான் சந்தித்த ஆட்டோ ஓட்டுநர்களில் மிகவும் நம்பகமானவர். எப்போதும் நேரத்திற்கு வந்து புன்னகையுடன்! நான் 5 ஆண்டுகளாக தினசரி அலுவலக பயணத்திற்கு அவரது சேவையைப் பயன்படுத்துகிறேன்.">
                     Muthu is the most reliable auto driver I've ever met...
                 </p>
-                <div class="customer-name">- Ramesh Kumar, Regular Customer</div>
+                <div class="customer-name">- Ramesh K, Regular Customer</div>
             </div>
         </div>
     </section>
@@ -755,10 +769,10 @@
                     <i class="fas fa-city"></i>
                 </div>
                 <h3 data-en="City Commute" data-ta="நகர பயணம்">City Commute</h3>
-                <p data-en="Daily travel within Coimbatore city limits" data-ta="கோயம்புத்தூர் நகரத்திற்குள் தினசரி பயணம்">Daily travel within Coimbatore city limits</p>
+                <p data-en="Daily travel within Polur Town limits" data-ta="போளூர் நகரத்திற்குள் தினசரி பயணம்">Daily travel within Polur Town limits</p>
             </div>
             
-            <div class="service-card women-safe">
+            <div class="service-card ">
                 <div class="service-icon">
                     <i class="fas fa-female"></i>
                 </div>
@@ -784,10 +798,10 @@
             
             <div class="service-card">
                 <div class="service-icon">
-                    <i class="fas fa-plane-departure"></i>
+                    <i class="fas fa-bus"></i>
                 </div>
-                <h3 data-en="Airport Rides" data-ta="விமான நிலைய பயணம்">Airport Rides</h3>
-                <p data-en="Timely pickups and drops to Coimbatore Airport" data-ta="கோயம்புத்தூர் விமான நிலையத்திற்கு நேரத்திற்கு எடுத்துச் செல்லுதல் மற்றும் கீழே இறக்குதல்">Timely pickups and drops to Coimbatore Airport</p>
+                <h3 data-en="Airport Rides" data-ta="பேருந்து நிலைய பயணம்">Bustand Rides</h3>
+                <p data-en="Timely pickups and drops to Polur Busstand" data-ta="போளூர் பேருந்து நிலையம் நேரத்திற்கு எடுத்துச் செல்லுதல் மற்றும் கீழே இறக்குதல்">Timely pickups and drops to Polur Airport</p>
             </div>
             
             <div class="service-card">
@@ -795,16 +809,16 @@
                     <i class="fas fa-train"></i>
                 </div>
                 <h3 data-en="Station Transfers" data-ta="ரயில் நிலைய பயணம்">Station Transfers</h3>
-                <p data-en="Reliable service to railway and bus stations" data-ta="ரயில் மற்றும் பேருந்து நிலையங்களுக்கு நம்பகமான சேவை">Reliable service to railway and bus stations</p>
+                <p data-en="Reliable service to railway" data-ta="ரயில் நிலையங்களுக்கு நம்பகமான சேவை">Reliable service to railway and bus stations</p>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section
     <section class="gallery" id="gallery">
         <h2 data-en="Our Gallery" data-ta="எங்கள் பட தொகுப்பு">Our Gallery</h2>
-        <!-- Gallery grid would be implemented here -->
-    </section>
+ 
+    </section> -->
 
     <!-- Tribute Section -->
     <section class="tribute-section" id="tribute">
@@ -848,10 +862,10 @@
             <div class="contact-card">
                 <i class="fas fa-map-marker-alt"></i>
                 <h3 data-en="Service Area" data-ta="சேவை பகுதி">Service Area</h3>
-                <p data-en="Coimbatore and surrounding areas" data-ta="கோயம்புத்தூர் மற்றும் சுற்றியுள்ள பகுதிகள்">Coimbatore and surrounding areas</p>
+                <p data-en="Polur and surrounding areas" data-ta="போளூர் மற்றும் சுற்றியுள்ள பகுதிகள்">Polur and surrounding areas</p>
                 <div class="map-container">
                     <!-- Google Maps embed would go here -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15666.14803630252!2d76.9559!3d11.0046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDAwJzE2LjYiTiA3NsKwNTcnMjEuMiJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed/v1/place?q=polur&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
             
@@ -875,21 +889,20 @@
         <a href="#home" class="footer-link" data-en="Home" data-ta="முகப்பு">Home</a>
         <a href="#about" class="footer-link" data-en="About" data-ta="பற்றி">About</a>
         <a href="#services" class="footer-link" data-en="Services" data-ta="சேவைகள்">Services</a>
-        <a href="#gallery" class="footer-link" data-en="Gallery" data-ta="பட தொகுப்பு">Gallery</a>
         <a href="#contact" class="footer-link" data-en="Contact" data-ta="தொடர்பு">Contact</a>
         <a href="#tribute" class="footer-link" data-en="Our Story" data-ta="எங்கள் கதை">Our Story</a>
     </div>
 
-    <div class="social-links">
+    <!-- <div class="social-links">
         <a href="https://www.facebook.com" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.twitter.com" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
         <a href="https://www.instagram.com" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
         <a href="https://www.linkedin.com" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://www.youtube.com" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
-    </div>
+    </div> -->
 
     <div class="footer-bottom">
-        <p>&copy; 2025 K. Muthu Auto Services. All rights reserved.</p>
+        <p>&copy; 2025 K. Muthu Auto Rickshaw Services. All rights reserved.</p>
     </div>
 </footer>
 </body>
@@ -920,22 +933,32 @@
 </script>
 <script>
     // Language toggle functionality
-    document.getElementById('languageToggle').addEventListener('click', function() {
+    document.getElementById('languageToggle').addEventListener('click', function () {
         const currentLang = document.documentElement.lang;
         const newLang = currentLang === 'en' ? 'ta' : 'en';
-        
+
         // Update html lang attribute
         document.documentElement.lang = newLang;
-        
+
         // Update button text
         const btnText = this.querySelector('.current-language');
-        btnText.textContent = newLang === 'en' ? 'English' : 'தமிழ்';
-        
+        btnText.textContent = newLang === 'en' ? 'தமிழ்' : 'English';
+
         // Toggle all bilingual content
-        document.querySelectorAll('[data-en], [data-ta]').forEach(element => {
-            if (element.dataset[newLang]) {
-                element.textContent = element.dataset[newLang];
-            }
+        document.querySelectorAll('[data-en][data-ta]').forEach(element => {
+            element.textContent = element.dataset[newLang];
         });
+    });
+
+    // Ensure content starts in Tamil on first load
+    window.addEventListener('DOMContentLoaded', function () {
+        document.documentElement.lang = 'ta';
+        document.querySelectorAll('[data-en][data-ta]').forEach(element => {
+            element.textContent = element.dataset['ta'];
+        });
+
+        // Set button to say "English" since Tamil is active
+        const btnText = document.querySelector('#languageToggle .current-language');
+        if (btnText) btnText.textContent = 'English';
     });
 </script>
