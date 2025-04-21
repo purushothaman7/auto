@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muthu Auto Service | Reliable Rickshaw Rides</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b21a8;  /* Dark purple */
+            --secondary: #facc15;  /* Vibrant yellow */
+            --dark: #1e1b4b;
+            --light: #f8fafc;
+            --accent: #a855f7;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            background-color: #f5f3ff;
+        }
+        
+        /* Enhanced Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(107, 33, 168, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 8px 5%;
+            background: rgba(107, 33, 168, 0.98);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            color: var(--secondary);
+            font-size: 2rem;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            position: relative;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-cta {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(250, 204, 21, 0.4);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .language-btn {
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--secondary);
+            padding: 8px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .language-btn:hover {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(30, 27, 75, 0.85), rgba(30, 27, 75, 0.85)), 
+                        url('https://images.unsplash.com/photo-1601758174810-8e7a7f60c7d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            margin-top: 70px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--dark);
+            box-shadow: 0 4px 15px rgba(250, 204, 21, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(250, 204, 21, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* Features Section */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 100px 20px;
+            flex-wrap: wrap;
+            background: white;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(107, 33, 168, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .testimonials h2 {
+            color: var(--primary);
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .testimonial-slider:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 5rem;
+            color: rgba(168, 85, 247, 0.1);
+            font-family: serif;
+        }
+        
+        .testimonial p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .customer-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 20px;
+            background: white;
+            text-align: center;
+        }
+        
+        .services h2 {
+            color: var(--primary);
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(107, 33, 168, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .service-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        .women-safe {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .women-safe:after {
+            content: 'Safe';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transform: rotate(15deg);
+        }
+        
+        /* Tribute Section */
+        .tribute-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tribute-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tribute-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .tribute-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .tribute-message p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        
+        .family-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 40px;
+            border: 5px solid var(--secondary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .family-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .tribute-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: transparent;
+            color: white;
+            border: 2px solid var(--secondary);
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tribute-btn:hover {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+        
+        .tribute-btn:before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 30px;
+            border: 2px solid transparent;
+            background: linear-gradient(45deg, var(--secondary), #f59e0b, #facc15, #fef08a) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            animation: borderAnimation 3s linear infinite;
+        }
+        
+        @keyframes borderAnimation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 20px;
+            background: white;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: var(--primary);
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(107, 33, 168, 0.1);
+        }
+        
+        .contact-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .contact-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .contact-card a {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card a:hover {
+            color: var(--secondary);
+        }
+        
+        .map-container {
+            height: 250px;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #eee;
+        }
+        
+        .availability {
+            margin-top: 50px;
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 12px 5%;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                box-shadow: 2px 0 20px rgba(0, 0, 0, 0.2);
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .language-switcher {
+                top: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <a href="#home" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-auto-rickshaw"></i>
+            </div>
+            <div class="logo-text">Muthu Auto</div>
+        </a>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <div class="nav-links" id="navLinks">
+            <a href="#home" class="nav-link" data-en="Home" data-ta="முகப்பு">Home</a>
+            <a href="#about" class="nav-link" data-en="About" data-ta="பற்றி">About</a>
+            <a href="#services" class="nav-link" data-en="Services" data-ta="சேவைகள்">Services</a>
+            <a href="#gallery" class="nav-link" data-en="Gallery" data-ta="பட தொகுப்பு">Gallery</a>
+            <a href="#contact" class="nav-link" data-en="Contact" data-ta="தொடர்பு">Contact</a>
+            <a href="#tribute" class="nav-link" data-en="Our Story" data-ta="எங்கள் கதை">Our Story</a>
+            <a href="tel:9382523912" class="nav-cta" data-en="Book Now" data-ta="பதிவு செய்க">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="language-btn" id="languageToggle">
+            <i class="fas fa-language"></i>
+            <span class="current-language">English</span>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1 class="hero-title" data-en="Reliable Auto Service by K. Muthu" data-ta="கே. முத்துவின் நம்பகமான ஆட்டோ சேவை">
+            Reliable Auto Service by K. Muthu
+        </h1>
+        <p class="hero-subtitle" data-en="Serving You with a Smile Since 2005!" data-ta="2005 முதல் புன்னகையுடன் உங்களுக்கு சேவை!">
+            Serving You with a Smile Since 2005!
+        </p>
+        <div class="cta-buttons">
+            <a href="tel:9382523912" class="btn btn-primary" data-en="Book a Ride" data-ta="பயணத்தை பதிவு செய்க">
+                <i class="fas fa-phone-alt"></i> Book a Ride
+            </a>
+            <a href="#services" class="btn btn-secondary" data-en="Our Services" data-ta="எங்கள் சேவைகள்">
+                <i class="fas fa-list"></i> Our Services
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Preview -->
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-couch"></i>
+            </div>
+            <h3 data-en="Comfortable" data-ta="வசதியான">Comfortable</h3>
+            <p data-en="Spacious and clean rides with cushioned seats" data-ta="மெத்தென்ற இருக்கைகளுடன் விசாலமான மற்றும் சுத்தமான பயணம்">Spacious and clean rides with cushioned seats</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 data-en="Safe" data-ta="பாதுகாப்பான">Safe</h3>
+            <p data-en="20+ years of accident-free driving experience" data-ta="20+ வருடங்கள் விபத்து இல்லாத ஓட்டுநர் அனுபவம்">20+ years of accident-free driving experience</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-clock"></i>
+            </div>
+            <h3 data-en="On-Time" data-ta="நேரத்தில்">On-Time</h3>
+            <p data-en="Punctual service with 98% on-time record" data-ta="98% நேரத்திற்கு வந்து சேவை">Punctual service with 98% on-time record</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-rupee-sign"></i>
+            </div>
+            <h3 data-en="Affordable" data-ta="மலிவு விலை">Affordable</h3>
+            <p data-en="Fair meter rates with no hidden charges" data-ta="மறைக்கப்பட்ட கட்டணம் இல்லாத நியாயமான விலை">Fair meter rates with no hidden charges</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="about">
+        <h2 data-en="What Our Customers Say" data-ta="எங்கள் வாடிக்கையாளர்கள் என்ன சொல்கிறார்கள்">What Our Customers Say</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <p data-en="Muthu is the most reliable auto driver I've ever met. Always on time and with a smile! I've been using his service for my office commute daily for 5 years." 
+                   data-ta="முத்து நான் சந்தித்த ஆட்டோ ஓட்டுநர்களில் மிகவும் நம்பகமானவர். எப்போதும் நேரத்திற்கு வந்து புன்னகையுடன்! நான் 5 ஆண்டுகளாக தினசரி அலுவலக பயணத்திற்கு அவரது சேவையைப் பயன்படுத்துகிறேன்.">
+                    Muthu is the most reliable auto driver I've ever met...
+                </p>
+                <div class="customer-name">- Ramesh Kumar, Regular Customer</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 data-en="Our Services" data-ta="எங்கள் சேவைகள்">Our Services</h2>
+        
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-city"></i>
+                </div>
+                <h3 data-en="City Commute" data-ta="நகர பயணம்">City Commute</h3>
+                <p data-en="Daily travel within Coimbatore city limits" data-ta="கோயம்புத்தூர் நகரத்திற்குள் தினசரி பயணம்">Daily travel within Coimbatore city limits</p>
+            </div>
+            
+            <div class="service-card women-safe">
+                <div class="service-icon">
+                    <i class="fas fa-female"></i>
+                </div>
+                <h3 data-en="Women-Safe Rides" data-ta="பெண்களுக்கு பாதுகாப்பான பயணம்">Women-Safe Rides</h3>
+                <p data-en="Special care for women passengers with verified identity" data-ta="சரிபார்க்கப்பட்ட அடையாளத்துடன் பெண் பயணிகளுக்கு சிறப்பு கவனிப்பு">Special care for women passengers with verified identity</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-user-clock"></i>
+                </div>
+                <h3 data-en="Senior Citizens" data-ta="மூத்தவர்கள்">Senior Citizens</h3>
+                <p data-en="Special assistance for elderly passengers" data-ta="வயதான பயணிகளுக்கு சிறப்பு உதவி">Special assistance for elderly passengers</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-suitcase-rolling"></i>
+                </div>
+                <h3 data-en="Luggage Transport" data-ta="பயண சாமான்கள்">Luggage Transport</h3>
+                <p data-en="Safe transport for your bags and packages" data-ta="உங்கள் பைகள் மற்றும் பொதிகளுக்கு பாதுகாப்பான போக்குவரத்து">Safe transport for your bags and packages</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-plane-departure"></i>
+                </div>
+                <h3 data-en="Airport Rides" data-ta="விமான நிலைய பயணம்">Airport Rides</h3>
+                <p data-en="Timely pickups and drops to Coimbatore Airport" data-ta="கோயம்புத்தூர் விமான நிலையத்திற்கு நேரத்திற்கு எடுத்துச் செல்லுதல் மற்றும் கீழே இறக்குதல்">Timely pickups and drops to Coimbatore Airport</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-train"></i>
+                </div>
+                <h3 data-en="Station Transfers" data-ta="ரயில் நிலைய பயணம்">Station Transfers</h3>
+                <p data-en="Reliable service to railway and bus stations" data-ta="ரயில் மற்றும் பேருந்து நிலையங்களுக்கு நம்பகமான சேவை">Reliable service to railway and bus stations</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <h2 data-en="Our Gallery" data-ta="எங்கள் பட தொகுப்பு">Our Gallery</h2>
+        <!-- Gallery grid would be implemented here -->
+    </section>
+
+    <!-- Tribute Section -->
+    <section class="tribute-section" id="tribute">
+        <div class="tribute-content">
+            <h1 data-en="The Man Behind the Meter" data-ta="மீட்டர் பின்னால் உள்ள மனிதர்">
+                The Man Behind the Meter
+            </h1>
+            <h2 data-en="My Hero, My Dad" data-ta="என் கதாநாயகன், என் அப்பா">
+                My Hero, My Dad
+            </h2>
+            
+            <div class="tribute-message">
+                <p data-en="This isn't just a website, it's a small tribute to the person who has driven not just a rickshaw, but our whole family forward. Through hot sun and heavy rain, with tired hands but never a tired spirit, he's shown me the true meaning of hard work and dedication. Every fare collected wasn't just money - it was my education, our meals, and our dreams. Thank you for every sacrifice, every ride, and every word of encouragement." 
+                   data-ta="இது ஒரு வலைத்தளம் மட்டுமல்ல, ஆட்டோ ரிக்ஷா மட்டுமல்லாது எங்கள் குடும்பத்தையும் முன்னேற்றிய ஒரு சிறிய அஞ்சலி. வெயிலிலும் மழையிலும், களைத்த கைகளுடனும் ஆனால் ஒருபோதும் களைத்த மனதின்றி, அவர் கடின உழைப்பு மற்றும் அர்ப்பணிப்பின் உண்மையான அர்த்தத்தை எனக்குக் காட்டியுள்ளார். சேகரிக்கப்பட்ட ஒவ்வொரு கட்டணமும் பணம் மட்டுமல்ல - அது என் கல்வி, எங்கள் உணவு மற்றும் எங்கள் கனவுகள். ஒவ்வொரு தியாகம், ஒவ்வொரு பயணம் மற்றும் ஒவ்வொரு ஊக்கமளிக்கும் வார்த்தைக்கும் நன்றி.">
+                    This isn't just a website, it's a small tribute...
+                </p>
+                
+                <div class="family-photo">
+                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Muthu with family">
+                </div>
+                
+                <a href="#contact" class="tribute-btn" data-en="Book His Service Today" data-ta="இன்றே அவரது சேவையைப் பதிவு செய்க">
+                    Book His Service Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 data-en="Contact Us" data-ta="எங்களை தொடர்பு கொள்ள">Contact Us</h2>
+        
+        <div class="contact-methods">
+            <div class="contact-card">
+                <i class="fas fa-phone-alt"></i>
+                <h3 data-en="Call Now" data-ta="இப்போது அழைக்கவும்">Call Now</h3>
+                <a href="tel:9382523912">+91 9382523912</a>
+                <p data-en="Available 24/7" data-ta="24 மணி நேரமும் கிடைக்கும்">Available 24/7</p>
+            </div>
+            
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3 data-en="Service Area" data-ta="சேவை பகுதி">Service Area</h3>
+                <p data-en="Coimbatore and surrounding areas" data-ta="கோயம்புத்தூர் மற்றும் சுற்றியுள்ள பகுதிகள்">Coimbatore and surrounding areas</p>
+                <div class="map-container">
+                    <!-- Google Maps embed would go here -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15666.14803630252!2d76.9559!3d11.0046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDAwJzE2LjYiTiA3NsKwNTcnMjEuMiJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <i class="fas fa-clock"></i>
+                <h3 data-en="Working Hours" data-ta="பணி நேரங்கள்">Working Hours</h3>
+                <p data-en="24 hours, 7 days a week" data-ta="வாரத்தின் 7 நாட்களும், 24 மணி நேரமும்">24 hours, 7 days a week</p>
+                <p data-en="Emergency service available" data-ta="அவசர சேவை கிடைக்கும்">Emergency service available</p>
+            </div>
+        </div>
+        
+        <div class="availability" data-en="Available Every Day - 24 hrs" data-ta="தினமும் கிடைக்கும் - 24 மணி நேரம்">
+            Available Every Day - 24 hrs
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer class="footer">
+    <div class="footer-links">
+        <a href="#home" class="footer-link" data-en="Home" data-ta="முகப்பு">Home</a>
+        <a href="#about" class="footer-link" data-en="About" data-ta="பற்றி">About</a>
+        <a href="#services" class="footer-link" data-en="Services" data-ta="சேவைகள்">Services</a>
+        <a href="#gallery" class="footer-link" data-en="Gallery" data-ta="பட தொகுப்பு">Gallery</a>
+        <a href="#contact" class="footer-link" data-en="Contact" data-ta="தொடர்பு">Contact</a>
+        <a href="#tribute" class="footer-link" data-en="Our Story" data-ta="எங்கள் கதை">Our Story</a>
+    </div>
+
+    <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.twitter.com" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.youtube.com" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 K. Muthu Auto Services. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+<script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // Mobile menu toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+        document.getElementById('navLinks').classList.toggle('active');
+    });
+    
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            document.getElementById('navLinks').classList.remove('active');
+        });
+    });
+    
+    // Previous language toggle script remains the same
+</script>
+
+<script>
+    // Language toggle functionality
+    document.getElementById('languageToggle').addEventListener('click', function() {
+        const currentLang = document.documentElement.lang;
+        const newLang = currentLang === 'en' ? 'ta' : 'en';
+        
+        // Update html lang attribute
+        document.documentElement.lang = newLang;
+        
+        // Update button text
+        const btnText = this.querySelector('.current-language');
+        btnText.textContent = newLang === 'en' ? 'English' : 'தமிழ்';
+        
+        // Toggle all bilingual content
+        document.querySelectorAll('[data-en], [data-ta]').forEach(element => {
+            if (element.dataset[newLang]) {
+                element.textContent = element.dataset[newLang];
+            }
+        });
+    });
+</script>
